@@ -1,6 +1,9 @@
 gcloud dataproc jobs submit hadoop \
-    --cluster=<your-cluster-name> \
-    --region=<your-region> \
-    --jar=gs://hadoop-lib/hadoop-streaming-3.3.6.jar \
-    --files=gs://hadoopstorage-joan/mapper.py,gs://hadoopstorage-joan/reducer.py \
-    -- gs://hadoopstorage-joan/input.txt gs://hadoopstorage-joan/output/
+    --cluster=sentiment-cluster \
+    --region=us-central1 \
+    --jar=/usr/lib/hadoop-mapreduce/hadoop-streaming.jar \
+    --files=gs://your-bucket-name/scripts/mapper.py,gs://your-bucket-name/scripts/reducer.py \
+    --mapper="python3 mapper.py" \
+    --reducer="python3 reducer.py" \
+    --input=gs://your-bucket-name/data/input.txt \
+    --output=gs://your-bucket-name/output/sentiment-analysis
