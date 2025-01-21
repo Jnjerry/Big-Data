@@ -1,0 +1,8 @@
+
+file:///usr/lib/hadoop/hadoop-streaming.jar
+
+-files gs://hadoopstorage-joan/mapper.py,gs://hadoopstorage-joan/reducer.py \
+-mapper "python3 gs://hadoopstorage-joan/mapper.py" \
+-reducer "python3 gs://hadoopstorage-joan/reducer.py" \
+gs://hadoopstorage-joan/input.txt \
+gs://hadoopstorage-joan
